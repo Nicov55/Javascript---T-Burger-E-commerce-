@@ -12,13 +12,13 @@ function turnoPrecio (valorEstandar, variablePrecio, valorTurno) {
 let mensaje = 'Precio';
         switch (valorTurno) {
             case "AFILIADO":
-                mensaje = "El precio del turno es de " + (resta(valorEstandar,variablePrecio));
+                mensaje = "El precio del turno es de $" + (resta(valorEstandar,variablePrecio));
                 break;
             case "PARTICULAR":
-                mensaje = "El precio del turno es de " + (suma(valorEstandar,(variablePrecio*2)));
+                mensaje = "El precio del turno es de $" + (suma(valorEstandar,(variablePrecio*2)));
                 break;
             case "OBRA SOCIAL":
-                mensaje = "El precio del turno es de " + (suma(valorEstandar,variablePrecio));
+                mensaje = "El precio del turno es de $" + (suma(valorEstandar,variablePrecio));
                 break;
             default:
                 mensaje = 0;
