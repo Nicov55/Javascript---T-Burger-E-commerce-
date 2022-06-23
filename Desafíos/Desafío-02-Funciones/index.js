@@ -1,28 +1,35 @@
 
 let valorEstandar = 2500;
 
+let nombre;
+let apellido;
+	
 const suma = (a,b) => a + b;
 const resta = (a,b) => a - b;
-const variablePrecio = valorEstandar => valorEstandar * 0.20;
+const variablePrecio = valorEstandar * 0.20;
 
 function turnoPrecio (valorEstandar, variablePrecio, valorTurno) {
+let mensaje = 'Precio';
         switch (valorTurno) {
             case "AFILIADO":
-                return "El precio del turno es de " + (valorEstandar,variablePrecio,resta);
+                mensaje = "El precio del turno es de " + (resta(valorEstandar,variablePrecio));
                 break;
             case "PARTICULAR":
-                return "El precio del turno es de " + (valorEstandar,variablePrecio,suma*2);
+                mensaje = "El precio del turno es de " + (suma(valorEstandar,(variablePrecio*2)));
                 break;
             case "OBRA SOCIAL":
-                return "El precio del turno es de" + (valorEstandar,variablePrecio,suma);
+                mensaje = "El precio del turno es de " + (suma(valorEstandar,variablePrecio));
                 break;
             default:
-                return 0;
+                mensaje = 0;
                 break;
                 };
+			return mensaje;
+            
             };
+            
 
-function turnoHorario () {
+function turnoHorario (horario) {
     
     switch (horario) {
     case "MAÑANA":
@@ -46,9 +53,12 @@ function turnoHorario () {
 
 }
 
-function pedirDatos () {
-  nombre = prompt ("Ingrese su nombre");
-  apellido = prompt ("Ingrese su apellido");
+function pedirNombre () {
+  return nombre = prompt ("Ingrese su nombre");
+}
+
+function pedirApellido () {
+  return apellido = prompt ("Ingrese su apellido");
 }
 
 // INICIO
@@ -57,12 +67,13 @@ alert ("Sistema de Turnos");
 
 for (let i = 1; i<50; i++) {
 
-    let nombre = prompt ("Ingrese su nombre");
-    let apellido = prompt ("Ingrese su apellido");
+	let nombre = pedirNombre();
+	let apellido = pedirApellido();
 
 	while ((nombre=="") || (apellido=="")) {
         alert ("Error: Ingresar Nombre y Apellido");
-        pedirDatos();
+        nombre = pedirNombre();
+		apellido = pedirApellido();
     }
 
 	alert (" Nombre "+ " " + nombre +" - Apellido "+ " " + apellido);
@@ -80,7 +91,8 @@ alert ("Ingrese la condición en la que se atiende (Particular - Afiliado - Obra
 
 let valorTurno = prompt ("Condición").toUpperCase ();
 
-turnoPrecio ();
+
+alert (turnoPrecio (valorEstandar,variablePrecio,valorTurno));
 
 
 let turno = parseInt (prompt ("Ingrese su N° de turno"));
@@ -92,5 +104,4 @@ else {};
 
 let horario = prompt ("Ingrese el horario de atención (Mañana - Tarde - Vespertino)").toUpperCase ();
 
-turnoHorario ();
-
+turnoHorario (horario);
