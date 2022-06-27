@@ -54,19 +54,20 @@ function adicionalesPrecio (adicionales) {
         
 }
 
-}
+};
 
 function pedirNombre () {
   return nombre = prompt ("Ingrese su nombre");
-}
+};
 
 function pedirApellido () {
   return apellido = prompt ("Ingrese su apellido");
-}
+};
 
 function pedirDireccion () {
-    return apellido = prompt ("Ingrese su dirección");
-  }
+    return direccion = prompt ("Ingrese su dirección");
+  };
+
 
 // INICIO
 
@@ -110,3 +111,20 @@ alert ("¿Desea agregar algun adicional?");
 let adicionales = prompt ("Panceta - Queso - Cebolla - Pepino").toUpperCase ();
 
 adicionalesPrecio (adicionales);
+
+
+class Cliente{
+    constructor (nombre,apellido,direccion){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+    }
+}
+
+nuevoCliente = new Cliente(nombre,apellido,direccion);
+agregar ()
+
+const baseDatos = [];
+function agregar () {
+    baseDatos.push(nuevoCliente)
+}
