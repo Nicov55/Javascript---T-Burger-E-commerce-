@@ -1,5 +1,7 @@
 alert ("Tienda de Hamburguesas")
 
+// ------- Estructura Base ----------
+
 let burgerEstandar = 1000;
 	
 const suma = (a,b) => a + b;
@@ -31,20 +33,24 @@ function adicionalesPrecio (adicionales) {
     
     switch (adicionales) {
     case "PANCETA":
-        alert("Muchas Gracias, el precio final de su pedido es de $ " + (precioBase + 200));
+        alert("Muchas Gracias, el precio final de su pedido es de $ " + (burgerTamaño + 200));
         break;
         
     case "CEBOLLA":
-        alert("Muchas Gracias, el precio final de su pedido es de $ " + (precioBase + 150));
+        alert("Muchas Gracias, el precio final de su pedido es de $ " + (burgerTamaño + 150));
         break;
 
     case "PEPINO":
-        alert("Muchas Gracias, el precio final de su pedido es de $ " + (precioBase + 100));
+        alert("Muchas Gracias, el precio final de su pedido es de $ " + (burgerTamaño + 100));
         break;
         
     case "QUESO":
-        alert("Muchas Gracias, el precio final de su pedido es de $ " + (precioBase + 200));
+        alert("Muchas Gracias, el precio final de su pedido es de $ " + (burgerTamaño + 200));
         break;
+
+    case "NO":
+            alert("Muchas Gracias, el precio final de su pedido es de $ " + burgerTamaño);
+            break;
 
     default:
         alert("Error, vuelva a intentarlo nuevamente");
@@ -68,7 +74,7 @@ function pedirDireccion () {
   };
 
 
-// INICIO
+// ------- INICIO ---------
 
 alert ("Ingrese sus datos y recibirá su N° de orden");
 
@@ -88,7 +94,7 @@ for (let i = 1; i<50; i++) {
     alert (" Orden N° " + i + " " + nombre + " " + apellido + "-  " + direccion);
 
 	if(i === 5)
-    {   alert (" Se ha llegado al límite de turnos disponibles en el día, intente nuevamente mañana");
+    {   alert (" Se ha llegado al límite de ordenes disponibles en el día, intente nuevamente mañana");
 		break;
 	}
 
@@ -103,34 +109,42 @@ else {orden};
 
 let burgerTamaño = prompt ("Ingrese el tamaño de su Hamburguesa (Simple - Doble - Triple)").toUpperCase ();
 
-precioBase = parseInt (alert(precioTamaño (burgerEstandar, variablePrecio, burgerTamaño)));
+let precioBase = parseInt (alert(precioTamaño (burgerEstandar, variablePrecio, burgerTamaño)));
+
+console.log(precioBase);
 
 alert ("¿Desea agregar algun adicional?");
 
-let adicionales = prompt ("Panceta - Queso - Cebolla - Pepino").toUpperCase ();
+let adicionales = prompt ("Panceta - Queso - Cebolla - Pepino - No").toUpperCase ();
 
 adicionalesPrecio (adicionales);
 
+// ------- ARRAYS ---------
 
-
-// Arrays
-
-
-
-
-class Cliente{
-    constructor (nombre,apellido,direccion){
+function Cliente (nombre,apellido,direccion){
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
     }
+
+let nuevoCliente = new Cliente(nombre,apellido,direccion);
+console.log(nuevoCliente);
+agregar();
+
+const listaClientes = 0;
+listaClientes = [];
+function agregar () {
+listaClientes.push(nuevoCliente.toUpperCase());
+console.log(listaClientes);
 }
 
-nuevoCliente = new Cliente(nombre,apellido,direccion);
-agregar ()
 
-const listaClientes = [];
-listaClientes.push(nuevoCliente.toUpperCase());
+
+
+
+
+
+
 
 
 
