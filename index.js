@@ -1,4 +1,4 @@
-alert ("Tienda de Hamburguesas")
+alert ("Tienda de Hamburguesas");
 
 // ------- Estructura Base ----------
 
@@ -8,7 +8,7 @@ const suma = (a,b) => a + b;
 const resta = (a,b) => a - b;
 const variablePrecio = burgerEstandar * 0.20;
 
-function precioTamaño (burgerEstandar, variablePrecio, burgerTamaño) {
+function precioTamañoMensaje (burgerEstandar, variablePrecio, burgerTamaño) {
 let mensaje = 'Precio';
         switch (burgerTamaño) {
             case "SIMPLE":
@@ -27,11 +27,16 @@ let mensaje = 'Precio';
 			return mensaje;
             
             };
-            
 
-function adicionalesPrecio (adicionales) {
+function precioTamañoValor (){
+if (burgerTamaño === "SIMPLE") {burgerTamaño = burgerEstandar}
+else if (burgerTamaño === "DOBLE") {burgerTamaño = suma(burgerEstandar,variablePrecio)}
+else if (burgerTamaño === "TRIPLE") {burgerTamaño = suma(burgerEstandar,(variablePrecio*2))};
+}
+
+function precioExtra (extra) {
     
-    switch (adicionales) {
+    switch (extra) {
     case "PANCETA":
         alert("Muchas Gracias, el precio final de su pedido es de $ " + (burgerTamaño + 200));
         break;
@@ -54,7 +59,7 @@ function adicionalesPrecio (adicionales) {
 
     default:
         alert("Error, vuelva a intentarlo nuevamente");
-        adicionales;
+        extra;
         break;
         
 }
@@ -72,6 +77,17 @@ function pedirApellido () {
 function pedirDireccion () {
     return direccion = prompt ("Ingrese su dirección");
   };
+
+function agregarCliente () {
+  let nuevoCliente = new Cliente(nombre,apellido,direccion);
+    
+  console.log(nuevoCliente);
+  
+  listaClientes.push(nuevoCliente);
+    
+    console.log(listaClientes);
+    
+};
 
 
 // ------- INICIO ---------
@@ -109,38 +125,72 @@ else {orden};
 
 let burgerTamaño = prompt ("Ingrese el tamaño de su Hamburguesa (Simple - Doble - Triple)").toUpperCase ();
 
-let precioBase = parseInt (alert(precioTamaño (burgerEstandar, variablePrecio, burgerTamaño)));
+let precioBase = parseInt (alert(precioTamañoMensaje (burgerEstandar, variablePrecio, burgerTamaño)));
 
-console.log(precioBase);
+precioTamañoValor ();
 
-alert ("¿Desea agregar algun adicional?");
+console.log(precioTamañoValor());
 
-let adicionales = prompt ("Panceta - Queso - Cebolla - Pepino - No").toUpperCase ();
+alert ("¿Desea agregar algun extra?");
 
-adicionalesPrecio (adicionales);
+let extra = prompt ("Panceta - Queso - Cebolla - Pepino - No").toUpperCase ();
+
+precioExtra (extra);
+
 
 // ------- ARRAYS ---------
 
-function Cliente (nombre,apellido,direccion){
+class Cliente {
+      constructor (nombre,apellido,direccion){
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
     }
+  };
 
-let nuevoCliente = new Cliente(nombre,apellido,direccion);
-console.log(nuevoCliente);
-agregar();
-
-const listaClientes = 0;
-listaClientes = [];
-function agregar () {
-listaClientes.push(nuevoCliente.toUpperCase());
-console.log(listaClientes);
-}
+const listaClientes = [];
+agregarCliente();
 
 
+class Producto{
+    constructor(nombre, precio){
+      this.nombre = nombre.toUpperCase();
+      this.precio = parseInt(precio);
+    }
+  };
+  
+  const productos = [];
+  productos.push(new Producto("CHEESE BURGER", 1000));
+  productos.push(new Producto("CHEESEBACON BURGER", 1200));
+  productos.push(new Producto("CRISPY BURGER", 1300));
+  productos.push(new Producto("Veggie", 1200));
+  
+  for(const producto of productos){
+    console.log(producto);
+  };
 
 
+
+  class Adicional{
+    constructor(nombre, precio){
+      this.nombre = nombre.toUpperCase();
+      this.precio = parseInt(precio);
+    }
+  };
+  
+  const adicionales = [];
+  adicionales.push(new Adicional("PANCETA", 200));
+  adicionales.push(new Adicional("QUESO", 150));
+  adicionales.push(new Adicional("CEBOLLA", 100));
+  adicionales.push(new Adicional("PEPINO", 200));
+  adicionales.push(new Adicional("NO", 0));
+  
+  for(const adicional of adicionales){
+    console.log(adicional);
+  };
+
+const listaPreciosTotal = productos.concat(adicionales);
+console.log(listaPreciosTotal);
 
 
 
