@@ -190,7 +190,7 @@ class Producto{
   };
 
 const listaPreciosTotal = productos.concat(adicionales);
-console.log(listaPreciosTotal);
+console.log(listaPreciosTotal)
 
 
 
