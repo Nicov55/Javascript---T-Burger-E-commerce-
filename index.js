@@ -163,7 +163,7 @@ class Producto{
   productos.push(new Producto("CHEESE BURGER", 1000));
   productos.push(new Producto("CHEESEBACON BURGER", 1200));
   productos.push(new Producto("CRISPY BURGER", 1300));
-  productos.push(new Producto("Veggie", 1200));
+  productos.push(new Producto("VEGGIE", 1200));
   
   for(const producto of productos){
     console.log(producto);
@@ -191,6 +191,8 @@ class Producto{
 
 const listaPreciosTotal = productos.concat(adicionales);
 console.log(listaPreciosTotal)
+
+
 
 
 
