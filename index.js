@@ -193,13 +193,18 @@ const listaPreciosTotal = productos.concat(adicionales);
 console.log(listaPreciosTotal)
 
 
+
+
+// ------- DOM BASE ---------
+
+
 for (let contador = 0; contador < productos.length; contador++) {
-  
+
   let precioHtml = document.getElementsByClassName("precio");
-precioHtml.innerText = "$" + productos.precio[contador];
+precioHtml[contador].innerText = "$" + productos[contador].precio;
 
 let burgerHtml = document.getElementsByClassName("nombreburger");
-burgerHtml.innerText = productos.nombre[contador];
+burgerHtml[contador].innerText = productos[contador].nombre;
 
 };
 
