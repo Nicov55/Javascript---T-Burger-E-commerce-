@@ -209,6 +209,11 @@ burgerHtml[contador].innerText = productos[contador].nombre;
 };
 
 
+// ------- EVENTOS ---------
+
+let clicBurger = document.getElementsByClassName
+
+
 
 
 
