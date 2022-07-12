@@ -3,7 +3,7 @@
 // // ------- Estructura Base ----------
 
 // let burgerEstandar = 1000;
-	
+
 // const suma = (a,b) => a + b;
 // const resta = (a,b) => a - b;
 // const variablePrecio = burgerEstandar * 0.20;
@@ -25,7 +25,7 @@
 //                 break;
 //                 };
 // 			return mensaje;
-            
+
 //             };
 
 // function precioTamañoValor (){
@@ -35,12 +35,12 @@
 // }
 
 // function precioExtra (extra) {
-    
+
 //     switch (extra) {
 //     case "PANCETA":
 //         alert("Muchas Gracias, el precio final de su pedido es de $ " + (burgerTamaño + 200));
 //         break;
-        
+
 //     case "CEBOLLA":
 //         alert("Muchas Gracias, el precio final de su pedido es de $ " + (burgerTamaño + 150));
 //         break;
@@ -48,7 +48,7 @@
 //     case "PEPINO":
 //         alert("Muchas Gracias, el precio final de su pedido es de $ " + (burgerTamaño + 100));
 //         break;
-        
+
 //     case "QUESO":
 //         alert("Muchas Gracias, el precio final de su pedido es de $ " + (burgerTamaño + 200));
 //         break;
@@ -61,7 +61,7 @@
 //         alert("Error, vuelva a intentarlo nuevamente");
 //         extra;
 //         break;
-        
+
 // }
 
 // };
@@ -80,13 +80,13 @@
 
 // function agregarCliente () {
 //   let nuevoCliente = new Cliente(nombre,apellido,direccion);
-    
+
 //   console.log(nuevoCliente);
-  
+
 //   listaClientes.push(nuevoCliente);
-    
+
 //     console.log(listaClientes);
-    
+
 // };
 
 
@@ -106,7 +106,7 @@
 // 		apellido = pedirApellido();
 //         direccion = pedirDireccion();
 //     }
-	
+
 //     alert (" Orden N° " + i + " " + nombre + " " + apellido + "-  " + direccion);
 
 // 	if(i === 5)
@@ -158,13 +158,13 @@ class Producto{
       this.precio = parseInt(precio);
     }
   };
-  
+
   const productos = [];
   productos.push(new Producto("CHEESE BURGER", 1000));
   productos.push(new Producto("CHEESEBACON BURGER", 1200));
   productos.push(new Producto("CRISPY BURGER", 1300));
   productos.push(new Producto("VEGGIE", 1200));
-  
+
   for(const producto of productos){
     console.log(producto);
   };
@@ -177,14 +177,14 @@ class Producto{
       this.precio = parseInt(precio);
     }
   };
-  
+
   const adicionales = [];
   adicionales.push(new Adicional("PANCETA", 200));
   adicionales.push(new Adicional("QUESO", 150));
   adicionales.push(new Adicional("CEBOLLA", 100));
   adicionales.push(new Adicional("PEPINO", 200));
   adicionales.push(new Adicional("NO", 0));
-  
+
   for(const adicional of adicionales){
     console.log(adicional);
   };
@@ -213,24 +213,17 @@ burgerHtml[contador].innerText = productos[contador].nombre;
 
 let carrito = [];
 
-let clicBurger = document.getElementById("0");
+let clicBurger = document.getElementsByClassName("botonagregar");
 
 for (let i = 0; i < productos.length; i++){
 clicBurger[i].addEventListener("click", respuestaClick);
 };
 
 function respuestaClick (e) {
- for(let i = 0; i < productos.length; i++){
-  // console.log(productos[i]);
- console.log(e.target.id);
-//  carrito.push(productos[i])
-//  console.log(carrito)
- };
+let ordenBoton = e.target.id;
+ carrito.push(productos[ordenBoton])
+ console.log(carrito)
 };
-
-// let cantidadPedido = document.getElementById("cantidadpedido");
-// cantidadPedido.innerText = carrito.length;
-
 
 
 // ------- STORAGE - JSON --------- (Armar Formulario de Usuario)
