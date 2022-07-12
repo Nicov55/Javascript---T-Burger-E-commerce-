@@ -213,19 +213,36 @@ burgerHtml[contador].innerText = productos[contador].nombre;
 
 let carrito = [];
 
-let clicBurger = document.getElementsByClassName("botonagregar");
+let clicBurger = document.getElementById("0");
 
 for (let i = 0; i < productos.length; i++){
 clicBurger[i].addEventListener("click", respuestaClick);
 };
 
-function respuestaClick () {
-  carrito.push[i] = productos[i];
-  console.log(carrito);
+function respuestaClick (e) {
+ for(let i = 0; i < productos.length; i++){
+  // console.log(productos[i]);
+ console.log(e.target.id);
+//  carrito.push(productos[i])
+//  console.log(carrito)
+ };
 };
 
+// let cantidadPedido = document.getElementById("cantidadpedido");
+// cantidadPedido.innerText = carrito.length;
 
 
+
+// ------- STORAGE - JSON --------- (Armar Formulario de Usuario)
+
+// const guardarStorage = (clave,valor) => {localStorage.setItem(clave,valor)};
+
+// let usuario;
+// let usuarioStorage = localStorage.getItem("usuario");
+// if(usuarioStorage){usuario = usuarioStorage;
+//   alert("Bienvenido " + usuario);}
+//   else{usuario = prompt("Ingresa tu nombre");
+//   localStorage.setItem("usuario", usuario);}
 
 
 
