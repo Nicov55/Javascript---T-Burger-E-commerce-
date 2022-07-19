@@ -153,20 +153,25 @@
 
 
 class Producto{
-    constructor(nombre, precio){
+    constructor(id, nombre, precio, imagen){
+      this.id = id
       this.nombre = nombre.toUpperCase();
       this.precio = parseInt(precio);
+      this.imagen = imagen 
     }
   };
 
   const productos = [];
-  productos.push(new Producto("CHEESE BURGER", 1000));
-  productos.push(new Producto("CHEESEBACON BURGER", 1200));
-  productos.push(new Producto("CRISPY BURGER", 1300));
-  productos.push(new Producto("VEGGIE", 1200));
+  productos.push(new Producto(0, "CHEESE BURGER", 900, "./public/cheeseburger.jpg"));
+  productos.push(new Producto(1, "CHEESEBACON BURGER", 1000, "./public/cheesebaconburger.jpg"));
+  productos.push(new Producto(2, "CRISPY BURGER", 1100, "./public/crispyburger.jpg"));
+  productos.push(new Producto(3, "AMERICAN BURGER", 1100, "./public/americanburger.jpg"));
+  productos.push(new Producto(4, "ONION BURGER", 1100, "./public/onionburger.jpg"));
+  productos.push(new Producto(5, "VEGGIE", 1000, "./public/veggieburger.jpg"));
+
 
   for(const producto of productos){
-    console.log(producto);
+    // console.log(producto);
   };
 
 
@@ -186,11 +191,11 @@ class Producto{
   adicionales.push(new Adicional("NO", 0));
 
   for(const adicional of adicionales){
-    console.log(adicional);
+    // console.log(adicional);
   };
 
 const listaPreciosTotal = productos.concat(adicionales);
-console.log(listaPreciosTotal)
+console.log("Lista Total de Precios:", listaPreciosTotal)
 
 
 
@@ -206,36 +211,87 @@ precioHtml[contador].innerText = "$" + productos[contador].precio;
 let burgerHtml = document.getElementsByClassName("nombreburger");
 burgerHtml[contador].innerText = productos[contador].nombre;
 
+let burgerimgHtml = document.getElementsByClassName("imgburger");
+
+burgerimgHtml[contador].src = productos[contador].imagen;
+
 };
 
 
-// ------- EVENTOS ---------
+// ------- CARRITO ---------
 
 let carrito = [];
+
+let cantidadpedido = document.getElementById('cantidadpedido');
+
+i=0;
+
+function sumarProducto() {
+  i++;
+  cantidadpedido.textContent = i;
+}
 
 let clicBurger = document.getElementsByClassName("botonagregar");
 
 for (let i = 0; i < productos.length; i++){
-clicBurger[i].addEventListener("click", respuestaClick);
+clicBurger[i].addEventListener("click", agregarAlCarrito);
+clicBurger[i].addEventListener("click", sumarProducto);
+clicBurger[i].addEventListener("click", totalCarrito);
 };
 
-function respuestaClick (e) {
+function agregarAlCarrito (e) {
 let ordenBoton = e.target.id;
- carrito.push(productos[ordenBoton])
- console.log(carrito)
+ carrito.push(productos[ordenBoton]);
+ console.log(carrito);
 };
 
+function totalCarrito() {
+  let total = 0;
+  for (const producto of carrito) {
+    total += producto.precio;
+  }
 
-// ------- STORAGE - JSON --------- (Armar Formulario de Usuario)
+  carritoPrecio = total;
+  carritoProductos = carrito.length;
 
-// const guardarStorage = (clave,valor) => {localStorage.setItem(clave,valor)};
+}
 
-// let usuario;
-// let usuarioStorage = localStorage.getItem("usuario");
-// if(usuarioStorage){usuario = usuarioStorage;
-//   alert("Bienvenido " + usuario);}
-//   else{usuario = prompt("Ingresa tu nombre");
-//   localStorage.setItem("usuario", usuario);}
+totalCarrito();
+console.log("Precio Carrito:", carritoPrecio);
+console.log("Total de Productos:", carritoProductos);
+
+function guardarProductosLS(producto){
+  let carrito = "";
+  carrito = this.obtenerProductosLS();
+  carrito.push(producto);
+  localStorage.setItem('productos', JSON.stringify(productos));
+}
+
+function obtenerProductosLS(){
+  let productoLS = "";
+
+  if(localStorage.getItem('productos') === null){
+      productoLS = [];
+  }
+  else {
+      productoLS = JSON.parse(localStorage.getItem('productos'));
+  }
+  return productoLS;
+
+}
+
+guardarProductosLS;
+obtenerProductosLS;
+
+
+// function vaciarCarrito () {
+//   carritoPrecio.innerText = "0";
+//   carritoProductos.innerText = "0";
+//   localStorage.clear();
+//   carrito
+// }
+
+// Continuar - Orden y Estructura / Ternario, & & y || / Carrito Pre HTML / Carrito Page HTML / 
 
 
 
