@@ -1,12 +1,19 @@
-function aumentarPedido() {
-    i++;
-    cantidadpedido.textContent = i;
-    };
-
 function agregarAlCarrito (e) {
+
+    // AGREGA PRODUCTO 
+
     let ordenBoton = e.target.id;
      carrito.push(productos[ordenBoton]);
      console.log(carrito);
+
+    // AUMENTA NRO DE PEDIDO
+
+    i++;
+    cantidadpedido.textContent = i;
+
+    // ACTUALIZA LS
+
+    localStorage.setItem('carrito', JSON.stringify(carrito))
     };
 
 function totalCarrito() {
@@ -27,27 +34,28 @@ function vaciarCarrito () {
     carrito
     };
 
-function guardarProductosLS(producto){
-    let carrito = "";
-    carrito = this.obtenerProductosLS();
-    carrito.push(producto);
-    localStorage.setItem('productos', JSON.stringify(productos));
-    };
-      
+
 function obtenerProductosLS(){
     let productoLS = "";
       
-    if(localStorage.getItem('productos') === null){
+    if(localStorage.getItem('carrito') === null){
         productoLS = [];
     }
     else {
-        productoLS = JSON.parse(localStorage.getItem('productos'));
+        productoLS = JSON.parse(localStorage.getItem('carrito'));
     }
     return productoLS;
       
     }
 
+// function variablePrecio () {
+// let clicSimple = 
 
+// let clicDoble = 
+
+// let clicTriple =
+
+// }
       
 
 

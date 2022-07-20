@@ -78,8 +78,30 @@ i=0;
 let clicBurger = document.getElementsByClassName("botonagregar");
 
 for (let i = 0; i < productos.length; i++){
-clicBurger[i].addEventListener("click", agregarAlCarrito);
-clicBurger[i].addEventListener("click", aumentarPedido);
+
+clicBurger[i].addEventListener("click", (e) => {
+  
+  Swal.fire({
+    title: '¿Agregar al Pedido?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Agregar',
+    cancelButtonText: 'Cancelar',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      agregarAlCarrito(e);
+      Swal.fire(
+        'Producto Agregado',
+        'Podes continuar haciendo tu pedido. Muchas Gracias',
+        'success'
+      )
+    }
+  })
+}
+)
+
 clicBurger[i].addEventListener("click", totalCarrito);
 };
 
@@ -88,11 +110,12 @@ totalCarrito();
 console.log("Precio Carrito:", carritoPrecio);
 console.log("Total de Productos:", carritoProductos);
 
-guardarProductosLS;
 obtenerProductosLS;
 
 
-// Continuar - Orden y Estructura / Ternario, & & y || / Carrito Pre HTML / Carrito Page HTML / 
+
+
+// Continuar - Ternario, & & y || / Carrito Pre HTML / Carrito Page HTML / Librerias
 
 
 
