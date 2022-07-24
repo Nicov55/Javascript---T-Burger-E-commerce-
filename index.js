@@ -92,6 +92,9 @@ clicBurger[i].addEventListener("click", (e) => {
   }).then((result) => {
     if (result.isConfirmed) {
       agregarAlCarrito(e);
+      totalCarrito();
+      console.log("Precio Carrito:", carritoPrecio);
+      console.log("Total de Productos:", carritoProductos);
       Swal.fire(
         'Producto Agregado',
         'Podes continuar haciendo tu pedido. Muchas Gracias',
@@ -100,17 +103,10 @@ clicBurger[i].addEventListener("click", (e) => {
     }
   })
 }
-)
+);
 
-clicBurger[i].addEventListener("click", totalCarrito);
 };
 
-totalCarrito();
-
-console.log("Precio Carrito:", carritoPrecio);
-console.log("Total de Productos:", carritoProductos);
-
-obtenerProductosLS;
 
 
 
