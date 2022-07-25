@@ -112,11 +112,6 @@ clicBurger[i].addEventListener("click", (e) => {
 };
 
 
-
-
-
-// Continuar - Ternario, & & y || (BLOQUEAR BOTON DE FINALIZAR PEDIDO CUANDO ESTE CARRITO VACIO) <button class="btn" disabled>My Button</button>
-
 // Carrito Pre HTML / Carrito Page HTML / Librerias
 
 // PARA FINALIZAR CARRITO EN NUEVO HTML, TOMAR INDICE DE LS, Cambiar boton a finalizar pedido
