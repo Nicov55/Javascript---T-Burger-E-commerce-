@@ -46,16 +46,13 @@ function obtenerProductosLS(){
     }
     return productoLS;
       
-    }
+    };
 
-// function variablePrecio () {
-// let clicSimple = 
 
-// let clicDoble = 
+function botonPedidos() {
+    let botonRealizarPedido = document.getElementById('botonpedidos');
+    carrito.length>0 && botonRealizarPedido.classList.remove('disabled');
+};
 
-// let clicTriple =
-
-// }
-      
 
 

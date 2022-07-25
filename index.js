@@ -57,6 +57,8 @@ for (let contador = 0; contador < productos.length; contador++) {
   let precioHtml = document.getElementsByClassName("precio");
 precioHtml[contador].innerText = "$" + productos[contador].precio;
 
+
+
 let burgerHtml = document.getElementsByClassName("nombreburger");
 burgerHtml[contador].innerText = productos[contador].nombre;
 
@@ -65,6 +67,7 @@ let burgerimgHtml = document.getElementsByClassName("imgburger");
 burgerimgHtml[contador].src = productos[contador].imagen;
 
 };
+
 
 
 // ------- CARRITO ---------
@@ -93,6 +96,7 @@ clicBurger[i].addEventListener("click", (e) => {
     if (result.isConfirmed) {
       agregarAlCarrito(e);
       totalCarrito();
+      botonPedidos();
       console.log("Precio Carrito:", carritoPrecio);
       console.log("Total de Productos:", carritoProductos);
       Swal.fire(
@@ -111,7 +115,18 @@ clicBurger[i].addEventListener("click", (e) => {
 
 
 
-// Continuar - Ternario, & & y || / Carrito Pre HTML / Carrito Page HTML / Librerias
+// Continuar - Ternario, & & y || (BLOQUEAR BOTON DE FINALIZAR PEDIDO CUANDO ESTE CARRITO VACIO) <button class="btn" disabled>My Button</button>
+
+// Carrito Pre HTML / Carrito Page HTML / Librerias
+
+// PARA FINALIZAR CARRITO EN NUEVO HTML, TOMAR INDICE DE LS, Cambiar boton a finalizar pedido
+
+// MODAL BS - Adicionales y Carrito
+
+
+
+
+
 
 
 
