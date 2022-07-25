@@ -8,3 +8,23 @@ h1 {
     padding: 20px;
     margin-top: 20px;
 }
+
+.swal2-title {
+font-size: 22px;
+}
+
+.swal2-html-container {
+    font-size: 18px;
+}
+
+.swal2-close {
+    font-size: 20px;
+}
+
+.swal2-cancel{
+    font-size: 20px; 
+}
+
+.swal2-confirm {
+    font-size: 20px;  
+}

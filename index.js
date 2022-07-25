@@ -99,16 +99,18 @@ clicBurger[i].addEventListener("click", (e) => {
       botonPedidos();
       console.log("Precio Carrito:", carritoPrecio);
       console.log("Total de Productos:", carritoProductos);
-      Swal.fire(
-        'Producto Agregado',
-        'Podes continuar haciendo tu pedido. Muchas Gracias',
-        'success'
-      )
+      Swal.fire({
+        title: productos[i].nombre + ' AGREGADA',
+        text: 'Podes continuar realizando tu pedido',
+        imageUrl: productos[i].imagen,
+        imageWidth: 250,
+        imageHeight: 250,
+        imageAlt: 'Burger Imagen',
+      })
     }
   })
 }
 );
-
 };
 
 
