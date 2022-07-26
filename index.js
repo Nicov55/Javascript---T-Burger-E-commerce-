@@ -40,7 +40,6 @@ class Producto{
   adicionales.push(new Adicional("NO", 0));
 
   for(const adicional of adicionales){
-    // console.log(adicional);
   };
 
 const listaPreciosTotal = productos.concat(adicionales);
@@ -80,43 +79,14 @@ i=0;
 
 let clicBurger = document.getElementsByClassName("botonagregar");
 
-for (let i = 0; i < productos.length; i++){
+alertaAgregarAlCarrito();
 
-clicBurger[i].addEventListener("click", (e) => {
-  
-  Swal.fire({
-    title: '¿Agregar al Pedido?',
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Agregar',
-    cancelButtonText: 'Cancelar',
-  }).then((result) => {
-    if (result.isConfirmed) {
-      agregarAlCarrito(e);
-      totalCarrito();
-      botonPedidos();
-      console.log("Precio Carrito:", carritoPrecio);
-      console.log("Total de Productos:", carritoProductos);
-      Swal.fire({
-        title: productos[i].nombre + ' AGREGADA',
-        text: 'Podes continuar realizando tu pedido',
-        imageUrl: productos[i].imagen,
-        imageWidth: 250,
-        imageHeight: 250,
-        imageAlt: 'Burger Imagen',
-      })
-    }
-  })
-}
-);
-};
+
 
 
 // Carrito Pre HTML / Carrito Page HTML / Librerias
 
-// PARA FINALIZAR CARRITO EN NUEVO HTML, TOMAR INDICE DE LS, Cambiar boton a finalizar pedido
+// PARA FINALIZAR CARRITO EN NUEVO HTML, TOMAR INDICE DE LS
 
 // MODAL BS - Adicionales y Carrito
 
