@@ -20,7 +20,6 @@ const alertaAgregarAlCarrito = () => {
 
     for (let i = 0; i < productos.length; i++){
 
-        clicBurger[i].addEventListener("click", itemsCarrito);
         clicBurger[i].addEventListener("click", (e) => {
           
           Swal.fire({
