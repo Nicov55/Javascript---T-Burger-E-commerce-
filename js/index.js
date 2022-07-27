@@ -56,8 +56,6 @@ for (let contador = 0; contador < productos.length; contador++) {
   let precioHtml = document.getElementsByClassName("precio");
 precioHtml[contador].innerText = "$" + productos[contador].precio;
 
-
-
 let burgerHtml = document.getElementsByClassName("nombreburger");
 burgerHtml[contador].innerText = productos[contador].nombre;
 
@@ -73,13 +71,20 @@ burgerimgHtml[contador].src = productos[contador].imagen;
 
 let carrito = [];
 
-let cantidadpedido = document.getElementById('cantidadpedido');
+const mainCarrito = document.querySelector ('.maincarrito')
+
+let cantidadPedido = document.getElementById('cantidadpedido');
+
+let cantidadPedidoCarrito = document.getElementById('cantidadpedidocarrito');
+
 
 i=0;
 
 let clicBurger = document.getElementsByClassName("botonagregar");
 
 alertaAgregarAlCarrito();
+
+
 
 
 
