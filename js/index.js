@@ -10,12 +10,12 @@ class Producto{
   };
 
   const productos = [];
-  productos.push(new Producto(0, "CHEESE BURGER", 900, "../public/cheeseburger.jpg"));
-  productos.push(new Producto(1, "CHEESEBACON BURGER", 1000, "../public/cheesebaconburger.jpg"));
-  productos.push(new Producto(2, "CRISPY BURGER", 1100, "../public/crispyburger.jpg"));
-  productos.push(new Producto(3, "AMERICAN BURGER", 1100, "../public/americanburger.jpg"));
-  productos.push(new Producto(4, "ONION BURGER", 1100, "../public/onionburger.jpg"));
-  productos.push(new Producto(5, "VEGGIE", 1000, "../public/veggieburger.jpg"));
+  productos.push(new Producto(0, "CHEESE BURGER", 900, "./public/cheeseburger.jpg"));
+  productos.push(new Producto(1, "CHEESEBACON BURGER", 1000, "./public/cheesebaconburger.jpg"));
+  productos.push(new Producto(2, "CRISPY BURGER", 1100, "./public/crispyburger.jpg"));
+  productos.push(new Producto(3, "AMERICAN BURGER", 1100, "./public/americanburger.jpg"));
+  productos.push(new Producto(4, "ONION BURGER", 1100, "./public/onionburger.jpg"));
+  productos.push(new Producto(5, "VEGGIE", 1000, "./public/veggieburger.jpg"));
 
 
   for(const producto of productos){
