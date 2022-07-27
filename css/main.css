@@ -1,0 +1,62 @@
+/* SWEET ALERT */
+
+.swal2-title {
+    font-size: 22px;
+    }
+    
+    .swal2-html-container {
+        font-size: 18px;
+    }
+    
+    .swal2-close {
+        font-size: 20px;
+    }
+    
+    .swal2-cancel{
+        font-size: 20px; 
+    }
+    
+    .swal2-confirm {
+        font-size: 20px;  
+    }
+
+/* BASE */
+
+.tigerimage {
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+}
+
+h1 {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+.h6 {
+    padding: 0px 25px 0px 25px
+}
+
+.main {
+    padding: 20px;
+}
+
+body {
+    background: rgb(185,185,185);
+    background: linear-gradient(0deg, rgba(185,185,185,1) 20%, rgba(251,251,251,1) 91%);
+}
+
+/* UBI */
+
+
+.ubi {
+    border-radius: 10%;
+}
+
+@media (max-width: 777px) {
+    .ubi{
+      width: 300px;
+      height: 200px;
+    }
+  }
