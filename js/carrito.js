@@ -1,26 +1,38 @@
-
 // ------- CARRITO ---------
 
 let carrito = [];
 
-const mainCarrito = document.querySelector ('.maincarrito')
-
 let cantidadPedido = document.getElementById('cantidadpedido');
+
+
+// OBTENER PRODUCTOS LOCAL STORAGE
+
+let productoLS = "";
+
+productoLS === null ? productoLS = [] : productoLS = JSON.parse(localStorage.getItem('carrito'));
+console.log("Productos en Carrito");
+console.log(productoLS);
+
+totalCarrito();
 
 let cantidadPedidoCarrito = document.getElementById('cantidadpedidocarrito');
 
+cantidadPedidoCarrito.innerText = "Cantidad de Productos: " + carritoProductos;
 
-i=0;
+let precioFinal = document.getElementById('preciofinal');
 
-let clicBurger = document.getElementsByClassName("botonagregar");
+precioFinal.innerText = "$ " + carritoPrecio
 
-alertaAgregarAlCarrito();
+// RENDERIZAR CARRITO
 
-// Carrito Pre HTML / Carrito Page HTML / Librerias
+const mainCarrito = document.querySelector ('.maincarrito');
+renderCarrito();
 
-// PARA FINALIZAR CARRITO EN NUEVO HTML, TOMAR INDICE DE LS
 
-// MODAL BS - Adicionales y Carrito
+// CONFIRMAR PEDIDO
+
+let clicConfirmado = document.getElementById ('botonconfirmado')
+
 
 
 
