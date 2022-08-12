@@ -96,10 +96,9 @@
 
       
                         <hr class="my-4">
-      
+                        <a class="btn btn-secondary" href="../index.html" role="button">Volver a la Tienda</a>
+                        <button type="button" class="btn btn-warning" id="vaciarcarrito">Vaciar Pedido</button>
                         <div class="pt-5">
-                          <h6 class="mb-0"><a href="../index.html" class="text-body"><i
-                                class="fas fa-long-arrow-alt-left me-2"></i>Volver a la Tienda</a></h6>
                         </div>
                       </div>
                     </div>
@@ -107,16 +106,17 @@
                       <div class="p-5">
                         <h3 class="fw-bold mb-5 mt-2 pt-1">Confirmar Pedido</h3>
                         <hr class="my-4">
-      
+
+                        <div class="form-group">
+
                         <h5 class=" mb-3">Envio/Retiro</h5>
-      
                         <div class="mb-4 pb-2">
                           <select class="select">
                             <option value="1">Quiero que me lo envien</option>
                             <option value="2">Lo retiro yo mismo</option>
                           </select>
                         </div>
-      
+                      
                         <label class="form-label" for="form3Examplea2">Domicilio</label>
                         <div class="mb-5">
                           <div class="form-outline">
@@ -146,24 +146,19 @@
                             </select>
 
                             <label class="form-label" for="form3Examplea2">¿Con cuanto abona?</label>
+                          </div>
                             <div class="mb-5">
                               <div class="form-outline">
                                 <input type="text" id="form3Examplea2" class="form-control form-control-sm" />
                               </div>
+                              <hr class="my-4">
+                              <div class="d-flex justify-content-between mb-5">
+                                <h5 class="text-uppercase">Precio Final</h5>
+                                <h5 id="preciofinal">$ 0</h5>
+                              </div>
+                              <button type="button" class="btn btn-dark btn-block btn-lg botonconfirmado"
+                                data-mdb-ripple-color="dark">Enviar Pedido</button>
                           </div>
-                        </div>
-      
-                        <hr class="my-4">
-      
-                        <div class="d-flex justify-content-between mb-5">
-                          <h5 class="text-uppercase">Precio Final</h5>
-                          <h5 id="preciofinal">$ 0</h5>
-                        </div>
-      
-                        <button type="button" class="btn btn-dark btn-block btn-lg botonconfirmado"
-                          data-mdb-ripple-color="dark">Enviar Pedido</button>
-      
-                      </div>
                     </div>
                   </div>
                 </div>

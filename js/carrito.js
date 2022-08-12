@@ -33,9 +33,11 @@ renderCarrito();
 
 let clicConfirmado = document.getElementById ('botonconfirmado')
 
+// VACIAR CARRITO
 
+let botonVaciarCarrito = document.getElementById('vaciarcarrito');
 
-
+alertaVaciarCarrito();
 
 
 

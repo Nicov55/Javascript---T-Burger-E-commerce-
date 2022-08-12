@@ -75,11 +75,37 @@ const totalCarrito = () => {
   };
 
 const vaciarCarrito = () => {
-    carritoPrecio.innerText = "0";
-    carritoProductos.innerText = "0";
+    carritoPrecio = "0";
+    carritoProductos = "0";
     localStorage.clear();
-    carrito
+    productoLS = [];
+    cantidadPedidoCarrito.innerText = "Cantidad de Productos: " + "0";
+    precioFinal.innerText = "$ " + "0"
     };
+
+const alertaVaciarCarrito = () => {
+  botonVaciarCarrito.addEventListener ("click", (e) => {
+  Swal.fire({
+    title: '¿Esta seguro que desea eliminar todo su pedido?',
+    text: "Tendra que volver a realizarlo",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    cancelButtonText: 'No',
+    confirmButtonText: 'Si, deseo eliminarlo',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      vaciarCarrito();
+      renderCarrito();
+      Swal.fire(
+        'Eliminado',
+        'Su pedido ha sido eliminado',
+        'success'
+      )
+    }})
+  })
+}
 
 
 const obtenerProductosLS = () => {

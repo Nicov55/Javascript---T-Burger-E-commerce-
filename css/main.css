@@ -137,3 +137,10 @@ body {
     display: none;
     visibility: hidden;
 }
+
+#vaciarcarrito {
+    align-items: right;
+    text-align: right;
+    justify-content: right;
+    float: right;
+}
