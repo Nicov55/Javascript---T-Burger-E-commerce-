@@ -53,7 +53,8 @@
 
                         </article>
                         <!-- Template Carrito -->
-                        <hr class="my-4">
+                        <div class="templatecarrito">
+                        <hr class="my-4" id="template">
       
                         <div class="row mb-4 d-flex justify-content-between align-items-center">
                           <div class="col-md-2 col-lg-2 col-xl-2">
@@ -66,7 +67,8 @@
                             <h6 class="text-black mb-0">Burger</h6>
                              <!-- Adicional -->
                             <h6 class="text-muted">Adicional</h6>
-                            
+                          </hr>
+                        </div>
                           </div>
                           <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                               <!-- Cantidad -->
@@ -103,29 +105,51 @@
                     </div>
                     <div class="col-lg-4 bg-grey">
                       <div class="p-5">
-                        <h3 class="fw-bold mb-5 mt-2 pt-1">Total</h3>
+                        <h3 class="fw-bold mb-5 mt-2 pt-1">Confirmar Pedido</h3>
                         <hr class="my-4">
       
-                        <div class="d-flex justify-content-between mb-4">
-                          <h5 class="">Lista Productos</h5>
-                          <h5>Precio</h5>
-                        </div>
-      
-                        <h5 class=" mb-3">Forma de Pago</h5>
+                        <h5 class=" mb-3">Envio/Retiro</h5>
       
                         <div class="mb-4 pb-2">
                           <select class="select">
-                            <option value="1">Efectivo</option>
-                            <option value="2">Mercado Pago</option>
+                            <option value="1">Quiero que me lo envien</option>
+                            <option value="2">Lo retiro yo mismo</option>
                           </select>
                         </div>
       
-                        <label class="form-label" for="form3Examplea2">¿Necesita Cambio?</label>
-      
+                        <label class="form-label" for="form3Examplea2">Domicilio</label>
                         <div class="mb-5">
                           <div class="form-outline">
-                            <input type="text" id="form3Examplea2" class="form-control" />
+                            <input type="text" id="form3Examplea2" class="form-control form-control-sm" />
+                          </div>
 
+                          <label class="form-label" for="form3Examplea2">Entrecalles</label>
+                          <div class="mb-5">
+                            <div class="form-outline">
+                              <input type="text" id="form3Examplea2" class="form-control form-control-sm" />
+                            </div>
+
+                            <label class="form-label" for="form3Examplea2">Telefono</label>
+                            <div class="mb-5">
+                              <div class="form-outline">
+                                <input type="text" id="form3Examplea2" class="form-control form-control-sm" />
+                              </div>
+
+                            
+                          <br>
+                          <h5 class=" mb-3">Forma de Pago</h5>
+        
+                          <div class="mb-4 pb-2">
+                            <select class="select">
+                              <option value="1">Efectivo</option>
+                              <option value="2">Mercado Pago</option>
+                            </select>
+
+                            <label class="form-label" for="form3Examplea2">¿Con cuanto abona?</label>
+                            <div class="mb-5">
+                              <div class="form-outline">
+                                <input type="text" id="form3Examplea2" class="form-control form-control-sm" />
+                              </div>
                           </div>
                         </div>
       
@@ -137,7 +161,7 @@
                         </div>
       
                         <button type="button" class="btn btn-dark btn-block btn-lg botonconfirmado"
-                          data-mdb-ripple-color="dark">Confirmar Pedido</button>
+                          data-mdb-ripple-color="dark">Enviar Pedido</button>
       
                       </div>
                     </div>

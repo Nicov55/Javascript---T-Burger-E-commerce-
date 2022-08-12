@@ -132,3 +132,8 @@ body {
     border-bottom-right-radius: 16px;
     }
     }
+
+.templatecarrito {
+    display: none;
+    visibility: hidden;
+}
