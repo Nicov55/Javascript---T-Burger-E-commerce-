@@ -182,10 +182,8 @@ const crearAdicionales = async () => {
     const adicion = document.createElement('div');
     adicion.classList.add('adicional');
     const Content =  ` 
-    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-    <label class="form-check-label" for="defaultCheck1" id="adicionales">
+    <input class="form-check-input" type="checkbox" value="" id="adicional${item.id}">
     ${item.nombre} =  ${"   $" + item.precio}
-    </label>
   ` 
   adicion.innerHTML = Content;
   extras.append(adicion);
