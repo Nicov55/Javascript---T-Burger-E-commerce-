@@ -69,10 +69,9 @@ descripcionHtml[contador].innerText = productos[contador].descripcion;
 };
 
 const extras = document.querySelector ('.extras');
+
 crearAdicionales();
 
-// let adicionalesHtml = document.getElementById("adicionales");
-// adicionalesHtml.innerText = adicionales[0].nombre + "     $" + adicionales[0].precio;
 
 // ------- CARRITO ---------
 
