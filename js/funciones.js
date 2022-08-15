@@ -172,18 +172,28 @@ const renderCarrito = () => {
   })
   }
 
-const crearAdicionales = () => {
+const crearAdicionales = async () => {
+  try {
+    const resp = await fetch("./js/adicionales.json");
+    const datos = await resp.json();
+
     extras.innerHTML = ''
-    adicionales.forEach(item => {
-      const article = document.createElement('div');
-      article.classList.add('extras');
-      const Content =  ` 
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-      <label class="form-check-label" for="defaultCheck1" id="adicionales">
-      ${item.nombre} =  ${"   $" + item.precio}
-      </label>
-    ` 
-    article.innerHTML = Content;
-    extras.append(article)
-    })
-    }
+    datos.forEach(item => {
+    const adicion = document.createElement('div');
+    adicion.classList.add('adicional');
+    const Content =  ` 
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1" id="adicionales">
+    ${item.nombre} =  ${"   $" + item.precio}
+    </label>
+  ` 
+  adicion.innerHTML = Content;
+  extras.append(adicion)
+});
+  } catch (error) {
+    const mensaje = document.createElement ("div");
+    mensaje.innerHTML = `Error al cargar la información ${error}`;
+    document.body.append(mensaje);
+  }
+  
+}
