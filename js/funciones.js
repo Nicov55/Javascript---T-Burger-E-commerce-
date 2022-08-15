@@ -188,7 +188,7 @@ const crearAdicionales = async () => {
     </label>
   ` 
   adicion.innerHTML = Content;
-  extras.append(adicion)
+  extras.append(adicion);
 });
   } catch (error) {
     const mensaje = document.createElement ("div");
