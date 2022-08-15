@@ -52,6 +52,7 @@ console.log("Lista Total de Precios:", listaPreciosTotal)
 
 // ----------- DOM BASE (N) -----------
 
+const extras = document.getElementsByClassName('extras');
 
 for (let contador = 0; contador < productos.length; contador++) {
 
@@ -66,9 +67,12 @@ burgerimgHtml[contador].src = productos[contador].imagen;
 
 let descripcionHtml = document.getElementsByClassName("descripcion");
 descripcionHtml[contador].innerText = productos[contador].descripcion;
+
+// let extrasHtml = document.getElementsByClassName("extras");
+// extrasHtml[contador].innerHTML = "llenar"
 };
 
-const extras = document.getElementById('extras');
+
 
 
 
