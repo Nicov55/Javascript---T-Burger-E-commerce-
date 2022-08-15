@@ -36,9 +36,9 @@ class Producto{
   const adicionales = [];
   adicionales.push(new Adicional("CARNE + CHEDDAR", 300));
   adicionales.push(new Adicional("PANCETA", 200));
-  adicionales.push(new Adicional("QUESO", 150));
+  adicionales.push(new Adicional("QUESO CHEDDAR", 150));
   adicionales.push(new Adicional("CEBOLLA", 100));
-  adicionales.push(new Adicional("PEPINO", 200));
+  adicionales.push(new Adicional("PEPINO", 100));
 
 
   for(const adicional of adicionales){
