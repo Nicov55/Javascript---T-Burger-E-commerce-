@@ -5,21 +5,22 @@ const agregarAlCarrito = (e) => {
     let ordenBoton = e.target.id;
 
     
-     var adicTotal = adicionales.length;
-     for(let y=0;y<adicionales.length;y++)
+     let adiTotal = adicionales.length;
+     for(let i=0;i<adicionales.length;i++)
      {
-        let AdiNombre = 'adicional' + y;
-        let adicN = document.getElementsByClassName(AdiNombre.toString());
+        let adiNombre = 'adicional' + i;
+        let adiClase = document.getElementsByClassName(adiNombre.toString());
 
-        let adicionalesN = adicN.length;
-        for(let f=0;f<adicionalesN;f++){
-          if (adicN[f].checked)
-          console.log(AdiNombre.toString());
-          //adicionalesSARASA.push(AdiNombre.toString());
+        let adiCantidad = adiClase.length;
+
+        for(let i=0;i<adiCantidad;i++){
+          if (adiClase[i].checked)
+          console.log(adiNombre.toString());  
         }
+
      }
 
-     carrito.push(productos[ordenBoton]/*, adicionalesSARASA*/);
+     carrito.push(productos[ordenBoton], adicionales[ordenBoton]);
      console.log(carrito);
     // AUMENTA NRO DE PEDIDO
 
@@ -149,29 +150,15 @@ const renderCarrito = () => {
     <div class="col-md-2 col-lg-2 col-xl-2">
       <!-- Imagen -->
       <img src= ${directorio.concat(item.imagen)}
-        class="img-fluid rounded-3" alt="imagenburger">
+        class="img-fluid rounded-3" id= "imgcarrito" alt="imagenburger">
     </div>
     <div class="col-md-3 col-lg-3 col-xl-3">
+    <!-- Adicional -->
+    <h6 class="text-muted" id= "textoadicional" >Adicional</h6>
       <!-- Producto -->
       <h6 class="text-black mb-0">${item.nombre}</h6>
-       <!-- Adicional -->
-      <h6 class="text-muted">Adicional</h6>
-      
     </div>
     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-        <!-- Cantidad -->
-      <button class="btn btn-link px-2"
-        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-        <i class="fas fa-minus"></i>
-      </button>
-
-      <input id="form1" min="0" name="quantity" value="1" type="number"
-        class="form-control form-control-sm" />
-
-      <button class="btn btn-link px-2"
-        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-        <i class="fas fa-plus"></i>
-      </button>
     </div>
     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
         <!-- Precio -->
@@ -183,7 +170,9 @@ const renderCarrito = () => {
     
   ` 
   article.innerHTML = Content;
-  mainCarrito.append(article)
+  mainCarrito.append(article);
+  // textoAdicional = document.getElementById('textoadicional')
+  // item.precio>900 ? textoAdicional.classList.add('ocultar') : " ";
   })
   }
 
@@ -194,7 +183,6 @@ const crearAdicionales = async () => {
 
     let extrasLength = document.querySelectorAll('.extras').length;
 
-    //extras.innerHTML = ''
     for(let p=0; p<extrasLength; p++){
     datos.forEach(item => {
     const adicion = document.createElement('div');

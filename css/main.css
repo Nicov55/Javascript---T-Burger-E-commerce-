@@ -57,6 +57,17 @@ summary {
     text-align: left;
 }
 
+
+/* MOSTRAR U OCULTAR */
+
+.ocultar {
+    display: none;
+    visibility: hidden;
+}
+
+
+/* MQ */
+
 @media (max-width: 460px) {
     .titulo{
     font-size: 30px;
@@ -175,4 +186,11 @@ summary {
     text-align: right;
     justify-content: right;
     float: right;
+}
+
+
+/* FOOTER */
+
+.bgfooter {
+background: linear-gradient(180deg, rgb(185,185,185) 11%, rgba(47,47,47,1) 95%);
 }

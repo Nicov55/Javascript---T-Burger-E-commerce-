@@ -54,8 +54,6 @@ console.log("Lista Total de Precios:", listaPreciosTotal)
 
 let extras = document.querySelector('.extras');
 
-console.log(extras);
-
 for (let contador = 0; contador < productos.length; contador++) {
 
   let precioHtml = document.getElementsByClassName("precio");
@@ -72,11 +70,6 @@ descripcionHtml[contador].innerText = productos[contador].descripcion;
 
 let extrasHtml = document.getElementsByClassName("extras");
 
-/*setTimeout(function(){
-  let extrasbase = document.getElementById("extras0");
-  extrasHtml[contador].innerHTML = extrasbase.innerHTML;
-}, 1000);*/
-
 };
 
 crearAdicionales();
@@ -84,6 +77,8 @@ crearAdicionales();
 // ------- CARRITO ---------
 
 let carrito = [];
+
+let adiCarrito = [];
 
 const mainCarrito = document.querySelector ('.maincarrito')
 
