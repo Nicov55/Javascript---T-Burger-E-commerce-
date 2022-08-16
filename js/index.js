@@ -52,6 +52,7 @@ console.log("Lista Total de Precios:", listaPreciosTotal)
 
 // ----------- DOM BASE (N) -----------
 
+let extras = document.querySelector('.extras');
 
 for (let contador = 0; contador < productos.length; contador++) {
 
@@ -66,16 +67,18 @@ burgerimgHtml[contador].src = productos[contador].imagen;
 
 let descripcionHtml = document.getElementsByClassName("descripcion");
 descripcionHtml[contador].innerText = productos[contador].descripcion;
+
+let extrasHtml = document.getElementsByClassName("extras");
+
 };
 
-const extras = document.querySelector ('.extras');
-
 crearAdicionales();
-
 
 // ------- CARRITO ---------
 
 let carrito = [];
+
+let adiCarrito = [];
 
 const mainCarrito = document.querySelector ('.maincarrito')
 
@@ -91,15 +94,6 @@ let clicBurger = document.getElementsByClassName("botonagregar");
 alertaAgregarAlCarrito();
 
 
-
-
-
-
-// Carrito Pre HTML / Carrito Page HTML / Librerias
-
-// PARA FINALIZAR CARRITO EN NUEVO HTML, TOMAR INDICE DE LS
-
-// MODAL BS - Adicionales y Carrito
 
 
 

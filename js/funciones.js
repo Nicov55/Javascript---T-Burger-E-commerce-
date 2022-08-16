@@ -3,9 +3,25 @@ const agregarAlCarrito = (e) => {
     // AGREGA PRODUCTO 
 
     let ordenBoton = e.target.id;
+
+    
+     let adiTotal = adicionales.length;
+     for(let i=0;i<adicionales.length;i++)
+     {
+        let adiNombre = 'adicional' + i;
+        let adiClase = document.getElementsByClassName(adiNombre.toString());
+
+        let adiCantidad = adiClase.length;
+
+        for(let i=0;i<adiCantidad;i++){
+          if (adiClase[i].checked)
+          console.log(adiNombre.toString());  
+        }
+        // PUSHEAR CORRECTAMENTE ADICIONALES AL CARRITO
+     }
+
      carrito.push(productos[ordenBoton]);
      console.log(carrito);
-
     // AUMENTA NRO DE PEDIDO
 
     i++;
@@ -134,29 +150,15 @@ const renderCarrito = () => {
     <div class="col-md-2 col-lg-2 col-xl-2">
       <!-- Imagen -->
       <img src= ${directorio.concat(item.imagen)}
-        class="img-fluid rounded-3" alt="imagenburger">
+        class="img-fluid rounded-3" id= "imgcarrito" alt="imagenburger">
     </div>
     <div class="col-md-3 col-lg-3 col-xl-3">
+    <!-- Adicional -->
+    <h6 class="text-muted" id= "textoadicional" >Adicional</h6>
       <!-- Producto -->
       <h6 class="text-black mb-0">${item.nombre}</h6>
-       <!-- Adicional -->
-      <h6 class="text-muted">Adicional</h6>
-      
     </div>
     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-        <!-- Cantidad -->
-      <button class="btn btn-link px-2"
-        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-        <i class="fas fa-minus"></i>
-      </button>
-
-      <input id="form1" min="0" name="quantity" value="1" type="number"
-        class="form-control form-control-sm" />
-
-      <button class="btn btn-link px-2"
-        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-        <i class="fas fa-plus"></i>
-      </button>
     </div>
     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
         <!-- Precio -->
@@ -168,30 +170,32 @@ const renderCarrito = () => {
     
   ` 
   article.innerHTML = Content;
-  mainCarrito.append(article)
+  mainCarrito.append(article);
+  // RENDERIZAR CORRECTAMENTE ADICIONALES
+  // textoAdicional = document.getElementById('textoadicional')
+  // item.precio>900 ? textoAdicional.classList.add('ocultar') : " ";
   })
   }
-
-let contenido = null;
 
 const crearAdicionales = async () => {
   try {
     const resp = await fetch("./js/adicionales.json");
     const datos = await resp.json();
 
-    extras.innerHTML = ''
+    let extrasLength = document.querySelectorAll('.extras').length;
+
+    for(let p=0; p<extrasLength; p++){
     datos.forEach(item => {
     const adicion = document.createElement('div');
     adicion.classList.add('adicional');
     const Content =  ` 
-    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-    <label class="form-check-label" for="defaultCheck1" id="adicionales">
+    <input class="form-check-input adicional${item.id}" type="checkbox" value="" id="adicional${item.id}">
     ${item.nombre} =  ${"   $" + item.precio}
-    </label>
-  ` ;
-  adicion.append(Content);
-  console.log(contenido);
+  ` 
+  adicion.innerHTML = Content;
+  document.querySelectorAll('.extras')[p].append(adicion);
 });
+}
   } catch (error) {
     const mensaje = document.createElement ("div");
     mensaje.innerHTML = `Error al cargar la información ${error}`;
@@ -199,3 +203,27 @@ const crearAdicionales = async () => {
   }
   
 }
+
+const pedidoEnviado = () => {
+  botonConfirmado.addEventListener ("click", () => {
+    Swal.fire({
+      title: '¿Esta seguro que desea confirmar su pedido?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Volver al pedido',
+      confirmButtonText: 'Confirmar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        vaciarCarrito();
+        renderCarrito();
+        Swal.fire(
+          'PEDIDO ENVIADO',
+          'Gracias por su compra',
+          'success'
+        )
+      }
+    })
+  })
+  }

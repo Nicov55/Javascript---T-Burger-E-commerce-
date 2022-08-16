@@ -1,8 +1,9 @@
 
 [
-    {"nombre": "CARNE + CHEDDAR", "precio": "300"},
-    {"nombre": "PANCETA", "precio": "200"},
-    {"nombre": "QUESO CHEDDAR", "precio": "150"},
-    {"nombre": "CEBOLLA", "precio": "100"},
-    {"nombre": "PEPINO", "precio": "50"}
+    {"id": "0","nombre": "CARNE + CHEDDAR", "precio": "300"},
+    {"id": "1","nombre": "PANCETA", "precio": "200"},
+    {"id": "2","nombre": "QUESO CHEDDAR", "precio": "150"},
+    {"id": "3","nombre": "CEBOLLA", "precio": "100"},
+    {"id": "4","nombre": "PEPINO", "precio": "50"}
+
 ]
