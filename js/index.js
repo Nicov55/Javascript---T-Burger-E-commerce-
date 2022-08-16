@@ -5,8 +5,9 @@ class Producto{
       this.id = id
       this.nombre = nombre.toUpperCase();
       this.precio = parseInt(precio);
-      this.imagen = imagen 
-      this.descripcion = descripcion.toUpperCase()
+      this.imagen = imagen;
+      this.descripcion = descripcion.toUpperCase();
+      this.detalles = [];
     }
   };
 
@@ -56,17 +57,17 @@ let extras = document.querySelector('.extras');
 
 for (let contador = 0; contador < productos.length; contador++) {
 
-  let precioHtml = document.getElementsByClassName("precio");
-precioHtml[contador].innerText = "$" + productos[contador].precio;
+  let precioHtml = document.getElementById("precio-" + contador);
+precioHtml.innerText = "$" + productos[contador].precio;
 
-let burgerHtml = document.getElementsByClassName("nombreburger");
-burgerHtml[contador].innerText = productos[contador].nombre;
+let burgerHtml = document.getElementById(contador);
+burgerHtml.innerText = productos[contador].nombre;
 
-let burgerimgHtml = document.getElementsByClassName("imgburger");
-burgerimgHtml[contador].src = productos[contador].imagen;
+let burgerimgHtml = document.getElementById("imgburger-" + contador);
+burgerimgHtml.src = productos[contador].imagen;
 
-let descripcionHtml = document.getElementsByClassName("descripcion");
-descripcionHtml[contador].innerText = productos[contador].descripcion;
+let descripcionHtml = document.getElementById("descripcion-" + contador);
+descripcionHtml.innerText = productos[contador].descripcion;
 
 let extrasHtml = document.getElementsByClassName("extras");
 

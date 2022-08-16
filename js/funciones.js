@@ -6,21 +6,24 @@ const agregarAlCarrito = (e) => {
 
     
      let adiTotal = adicionales.length;
+
+     const productoSeleccionado = productos[ordenBoton];
+     
      for(let i=0;i<adicionales.length;i++)
      {
         let adiNombre = 'adicional' + i;
-        let adiClase = document.getElementsByClassName(adiNombre.toString());
+        let adiClase = document.getElementById(adiNombre.toString());
+        console.log(adiClase.parentElement.parentElement);
 
-        let adiCantidad = adiClase.length;
-
-        for(let i=0;i<adiCantidad;i++){
-          if (adiClase[i].checked)
-          console.log(adiNombre.toString());  
+        if(adiClase.checked){
+          console.log(productos);
+          productoSeleccionado.detalles.push(adicionales[i]);
+          console.log(adiNombre.toString())
+          adiClase.checked = false
         }
         // PUSHEAR CORRECTAMENTE ADICIONALES AL CARRITO
      }
-
-     carrito.push(productos[ordenBoton]);
+     carrito.push(productoSeleccionado);
      console.log(carrito);
     // AUMENTA NRO DE PEDIDO
 
@@ -153,14 +156,14 @@ const renderCarrito = () => {
         class="img-fluid rounded-3" id= "imgcarrito" alt="imagenburger">
     </div>
     <div class="col-md-3 col-lg-3 col-xl-3">
-    <!-- Adicional -->
-    <h6 class="text-muted" id= "textoadicional" >Adicional</h6>
       <!-- Producto -->
       <h6 class="text-black mb-0">${item.nombre}</h6>
     </div>
     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
     </div>
     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+    <!-- Adicional -->
+    <h6 class="text-muted" id= "textoadicional" >Adicional</h6>
         <!-- Precio -->
       <h6 class="mb-0">$${item.precio}</h6>
     </div>
@@ -189,7 +192,7 @@ const crearAdicionales = async () => {
     const adicion = document.createElement('div');
     adicion.classList.add('adicional');
     const Content =  ` 
-    <input class="form-check-input adicional${item.id}" type="checkbox" value="" id="adicional${item.id}">
+    <input class="form-check-input adicional${item.id}" type="checkbox" value="" attr-idhamburguesa="" id="adicional${item.id}">
     ${item.nombre} =  ${"   $" + item.precio}
   ` 
   adicion.innerHTML = Content;
