@@ -3,9 +3,24 @@ const agregarAlCarrito = (e) => {
     // AGREGA PRODUCTO 
 
     let ordenBoton = e.target.id;
-     carrito.push(productos[ordenBoton]);
-     console.log(carrito);
 
+    
+     var adicTotal = adicionales.length;
+     for(let y=0;y<adicionales.length;y++)
+     {
+        let AdiNombre = 'adicional' + y;
+        let adicN = document.getElementsByClassName(AdiNombre.toString());
+
+        let adicionalesN = adicN.length;
+        for(let f=0;f<adicionalesN;f++){
+          if (adicN[f].checked)
+          console.log(AdiNombre.toString());
+          //adicionalesSARASA.push(AdiNombre.toString());
+        }
+     }
+
+     carrito.push(productos[ordenBoton]/*, adicionalesSARASA*/);
+     console.log(carrito);
     // AUMENTA NRO DE PEDIDO
 
     i++;
@@ -177,17 +192,21 @@ const crearAdicionales = async () => {
     const resp = await fetch("./js/adicionales.json");
     const datos = await resp.json();
 
-    extras.innerHTML = ''
+    let extrasLength = document.querySelectorAll('.extras').length;
+
+    //extras.innerHTML = ''
+    for(let p=0; p<extrasLength; p++){
     datos.forEach(item => {
     const adicion = document.createElement('div');
     adicion.classList.add('adicional');
     const Content =  ` 
-    <input class="form-check-input" type="checkbox" value="" id="adicional${item.id}">
+    <input class="form-check-input adicional${item.id}" type="checkbox" value="" id="adicional${item.id}">
     ${item.nombre} =  ${"   $" + item.precio}
   ` 
   adicion.innerHTML = Content;
-  extras.append(adicion);
+  document.querySelectorAll('.extras')[p].append(adicion);
 });
+}
   } catch (error) {
     const mensaje = document.createElement ("div");
     mensaje.innerHTML = `Error al cargar la información ${error}`;

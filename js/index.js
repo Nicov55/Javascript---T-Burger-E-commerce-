@@ -72,10 +72,10 @@ descripcionHtml[contador].innerText = productos[contador].descripcion;
 
 let extrasHtml = document.getElementsByClassName("extras");
 
-setTimeout(function(){
+/*setTimeout(function(){
   let extrasbase = document.getElementById("extras0");
   extrasHtml[contador].innerHTML = extrasbase.innerHTML;
-}, 10);
+}, 1000);*/
 
 };
 
