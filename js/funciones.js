@@ -17,10 +17,10 @@ const agregarAlCarrito = (e) => {
           if (adiClase[i].checked)
           console.log(adiNombre.toString());  
         }
-
+        // PUSHEAR CORRECTAMENTE ADICIONALES AL CARRITO
      }
 
-     carrito.push(productos[ordenBoton], adicionales[ordenBoton]);
+     carrito.push(productos[ordenBoton]);
      console.log(carrito);
     // AUMENTA NRO DE PEDIDO
 
@@ -171,6 +171,7 @@ const renderCarrito = () => {
   ` 
   article.innerHTML = Content;
   mainCarrito.append(article);
+  // RENDERIZAR CORRECTAMENTE ADICIONALES
   // textoAdicional = document.getElementById('textoadicional')
   // item.precio>900 ? textoAdicional.classList.add('ocultar') : " ";
   })
@@ -202,3 +203,27 @@ const crearAdicionales = async () => {
   }
   
 }
+
+const pedidoEnviado = () => {
+  botonConfirmado.addEventListener ("click", () => {
+    Swal.fire({
+      title: '¿Esta seguro que desea confirmar su pedido?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Volver al pedido',
+      confirmButtonText: 'Confirmar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        vaciarCarrito();
+        renderCarrito();
+        Swal.fire(
+          'PEDIDO ENVIADO',
+          'Gracias por su compra',
+          'success'
+        )
+      }
+    })
+  })
+  }

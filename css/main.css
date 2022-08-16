@@ -191,6 +191,9 @@ summary {
 
 /* FOOTER */
 
-.bgfooter {
-background: linear-gradient(180deg, rgb(185,185,185) 11%, rgba(47,47,47,1) 95%);
+footer {
+    width: 100%;
+}
+.circulo{
+    border-radius: 40px;
 }

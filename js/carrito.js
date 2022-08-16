@@ -37,7 +37,12 @@ let clicConfirmado = document.getElementById ('botonconfirmado')
 
 let botonVaciarCarrito = document.getElementById('vaciarcarrito');
 
+// CONFIRMAR PEDIDO
+
+let botonConfirmado = document.getElementById('botonconfirmado');
+
 alertaVaciarCarrito();
+pedidoEnviado();
 
 
 
