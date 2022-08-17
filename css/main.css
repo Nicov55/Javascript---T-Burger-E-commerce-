@@ -53,8 +53,17 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.adi {
+        font-size: 13px;
+        text-align: left;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 summary {
     text-align: left;
+    font-size: 13px;
+    text-align: left;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
@@ -107,6 +116,10 @@ summary {
     .adicional {
         font-size: 8px;
 
+    }
+
+    .adi {
+        font-size: 8px;
     }
 
     .p-5 {
