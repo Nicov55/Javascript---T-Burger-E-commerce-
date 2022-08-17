@@ -240,19 +240,7 @@ const pedidoEnviado = () => {
           arrayGuardarDatos = [];         
       for (let i = 0; i < lstNumero.length; i++) {    
           arrayGuardarDatos[i] = lstNumero[i].value;
-          }   
-          console.log ("Envio (1) / Retiro (2) :");   
-          console.log(arrayGuardarDatos[0]);
-          console.log ("Domicilio :");
-          console.log(arrayGuardarDatos[1]);
-          console.log ("EntreCalles :");   
-          console.log(arrayGuardarDatos[2]);  
-          console.log ("Telefono :");   
-          console.log(arrayGuardarDatos[3]); 
-          console.log ("Paga en efectivo (1) / MercadoPago (2) :");   
-          console.log(arrayGuardarDatos[4]);
-          console.log ("Abona con :");   
-          console.log(arrayGuardarDatos[5]);   
+          }    
       }
   
   
