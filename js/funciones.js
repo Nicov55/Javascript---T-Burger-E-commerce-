@@ -13,10 +13,10 @@ const agregarAlCarrito = (e) => {
         if(adiClase.checked){
           productoSeleccionado.detalles.push(adicionales[i]);
         }
-        // PUSHEAR CORRECTAMENTE ADICIONALES AL CARRITO
+
      }
      carrito.push(productoSeleccionado);
-     console.log(carrito);
+
     // AUMENTA NRO DE PEDIDO
 
     i++;
@@ -46,8 +46,6 @@ const alertaAgregarAlCarrito = () => {
               agregarAlCarrito(e);
               totalCarritoIndex();
               botonPedidos();
-              console.log("Precio Carrito:", carritoPrecio);
-              console.log("Total de Productos:", carritoProductos);
               Swal.fire({
                 title: productos[i].nombre + ' AGREGADA',
                 text: 'Podes continuar realizando tu pedido',
@@ -124,8 +122,6 @@ const obtenerProductosLS = () => {
     let productoLS = "";
 
     productoLS === null ? productoLS = [] : productoLS = JSON.parse(localStorage.getItem('carrito'));
-    console.log("Productos en Carrito");
-    console.log(productoLS);
     };
 
 const botonPedidos = () => {
@@ -133,6 +129,7 @@ const botonPedidos = () => {
     carrito.length>0 && botonRealizarPedido.classList.remove('disabled');
     };
     let valorTotal = 0;
+
 const renderCarrito = () => {
   directorio = "."
   mainCarrito.innerHTML = ''
@@ -159,13 +156,13 @@ const renderCarrito = () => {
     <div class="col-md-2 col-lg-2 col-xl-2">
       <!-- Imagen -->
       <img src= ${directorio.concat(item.imagen)}
-        class="img-fluid rounded-3" id= "imgcarrito" alt="imagenburger">
+        class="img-fluid rounded-1" id= "imgcarrito" alt="imagenburger">
     </div>
     <div class="col-md-3 col-lg-3 col-xl-3">
       <!-- Producto -->
       <h6 class="text-black mb-0">${item.nombre}</h6>
       <h6 class="text-muted" id= "textoadicional" >Adicional</h6>
-      <p>${detallesInfo}</p>
+      <p class="detalleadicionales">${detallesInfo}</p>
     </div>
     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
     </div>
@@ -182,9 +179,6 @@ const renderCarrito = () => {
   ` 
   article.innerHTML = Content;
   mainCarrito.append(article);
-  // RENDERIZAR CORRECTAMENTE ADICIONALES
-  // textoAdicional = document.getElementById('textoadicional')
-  // item.precio>900 ? textoAdicional.classList.add('ocultar') : " ";
   })
   }
 
@@ -238,3 +232,26 @@ const pedidoEnviado = () => {
     })
   })
   }
+
+  const tomarPedidos = () => {
+      botonConfirmado.addEventListener ("click", () => {
+      let lstNumero = document.getElementsByClassName("valor"),
+          arrayGuardarDatos = [];         
+      for (let i = 0; i < lstNumero.length; i++) {    
+          arrayGuardarDatos[i] = lstNumero[i].value;
+          }   
+          console.log ("Envio (1) / Retiro (2) :");   
+          console.log(arrayGuardarDatos[0]);
+          console.log ("Domicilio :");
+          console.log(arrayGuardarDatos[1]);
+          console.log ("EntreCalles :");   
+          console.log(arrayGuardarDatos[2]);  
+          console.log ("Telefono :");   
+          console.log(arrayGuardarDatos[3]); 
+          console.log ("Paga en efectivo (1) / MercadoPago (2) :");   
+          console.log(arrayGuardarDatos[4]);
+          console.log ("Abona con :");   
+          console.log(arrayGuardarDatos[5]);   
+      })}
+  
+  

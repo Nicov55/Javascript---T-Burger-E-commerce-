@@ -10,8 +10,6 @@ let cantidadPedido = document.getElementById('cantidadpedido');
 let productoLS = "";
 
 productoLS === null ? productoLS = [] : productoLS = JSON.parse(localStorage.getItem('carrito'));
-console.log("Productos en Carrito");
-console.log(productoLS);
 
 totalCarrito();
 
@@ -43,7 +41,7 @@ let botonConfirmado = document.getElementById('botonconfirmado');
 
 alertaVaciarCarrito();
 pedidoEnviado();
-
+tomarPedidos();
 
 
 

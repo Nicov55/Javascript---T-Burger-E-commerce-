@@ -99,6 +99,19 @@ summary {
     #botonpedidos {
         font-size: 12px;
     }
+
+    summary {
+        font-size: 11px;
+    }
+
+    .adicional {
+        font-size: 8px;
+
+    }
+
+    .p-5 {
+        font-size: 12px;
+    }
   }
 
 
@@ -141,6 +154,12 @@ summary {
 
 /* CARRITO */
 
+.detalleadicionales {
+    font-size: 12px;
+}
+
+
+
 @media (min-width: 1025px) {
     .h-custom {
     height: 100vh !important;
@@ -175,6 +194,16 @@ summary {
     border-bottom-right-radius: 16px;
     }
     }
+
+        
+    @media (max-width: 768px) {
+    #imgcarrito {
+    width: 165px;
+    height: 165px;
+    padding: 10px;
+
+            }
+        }
 
 .templatecarrito {
     display: none;
