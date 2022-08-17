@@ -3,23 +3,15 @@ const agregarAlCarrito = (e) => {
     // AGREGA PRODUCTO 
 
     let ordenBoton = e.target.id;
+    const productoSeleccionado = productos[ordenBoton];
 
-    
-     let adiTotal = adicionales.length;
-
-     const productoSeleccionado = productos[ordenBoton];
-     
-     for(let i=0;i<adicionales.length;i++)
-     {
-        let adiNombre = 'adicional' + i;
+    for(let i=0;i<adicionales.length;i++)
+    {
+        let adiNombre = 'adicional' + ordenBoton + i;
         let adiClase = document.getElementById(adiNombre.toString());
-        console.log(adiClase.parentElement.parentElement);
-
+      
         if(adiClase.checked){
-          console.log(productos);
           productoSeleccionado.detalles.push(adicionales[i]);
-          console.log(adiNombre.toString())
-          adiClase.checked = false
         }
         // PUSHEAR CORRECTAMENTE ADICIONALES AL CARRITO
      }
@@ -140,13 +132,27 @@ const botonPedidos = () => {
     let botonRealizarPedido = document.getElementById('botonpedidos');
     carrito.length>0 && botonRealizarPedido.classList.remove('disabled');
     };
-
+    let valorTotal = 0;
 const renderCarrito = () => {
   directorio = "."
   mainCarrito.innerHTML = ''
   productoLS.forEach(item => {
     const article = document.createElement('div');
     article.classList.add('productocarrito');
+    let detallesInfo = "";
+    
+
+    for(let i = 0; i < item.detalles.length ; i++){
+      detallesInfo += item.detalles[i].nombre + ", ";
+      item.precio += item.detalles[i].precio;
+    } 
+
+    valorTotal += item.precio;
+
+    detallesInfo = detallesInfo.substring(0, detallesInfo.length - 2);
+
+    document.getElementById("preciofinal").innerHTML = "$" + valorTotal;
+    
     const Content =  ` 
     <hr class="my-4">
     <div class="row mb-4 d-flex justify-content-between align-items-center">
@@ -158,12 +164,14 @@ const renderCarrito = () => {
     <div class="col-md-3 col-lg-3 col-xl-3">
       <!-- Producto -->
       <h6 class="text-black mb-0">${item.nombre}</h6>
+      <h6 class="text-muted" id= "textoadicional" >Adicional</h6>
+      <p>${detallesInfo}</p>
     </div>
     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
     </div>
     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
     <!-- Adicional -->
-    <h6 class="text-muted" id= "textoadicional" >Adicional</h6>
+    
         <!-- Precio -->
       <h6 class="mb-0">$${item.precio}</h6>
     </div>
@@ -192,7 +200,7 @@ const crearAdicionales = async () => {
     const adicion = document.createElement('div');
     adicion.classList.add('adicional');
     const Content =  ` 
-    <input class="form-check-input adicional${item.id}" type="checkbox" value="" attr-idhamburguesa="" id="adicional${item.id}">
+    <input class="form-check-input adicional${item.id}" type="checkbox" value="" id="adicional${p}${item.id}">
     ${item.nombre} =  ${"   $" + item.precio}
   ` 
   adicion.innerHTML = Content;

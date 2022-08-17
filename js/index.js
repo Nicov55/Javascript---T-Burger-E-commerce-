@@ -46,7 +46,6 @@ class Producto{
   };
 
 const listaPreciosTotal = productos.concat(adicionales);
-console.log("Lista Total de Precios:", listaPreciosTotal)
 
 
 
