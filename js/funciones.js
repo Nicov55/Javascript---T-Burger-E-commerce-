@@ -12,6 +12,7 @@ const agregarAlCarrito = (e) => {
       
         if(adiClase.checked){
           productoSeleccionado.detalles.push(adicionales[i]);
+          adiClase.checked = false;
         }
 
      }
@@ -161,7 +162,7 @@ const renderCarrito = () => {
     <div class="col-md-3 col-lg-3 col-xl-3">
       <!-- Producto -->
       <h6 class="text-black mb-0">${item.nombre}</h6>
-      <h6 class="text-muted" id= "textoadicional" >Adicional</h6>
+      <h6 class="text-muted adivacio" id= "textoadicional" >Extra:</h6>
       <p class="detalleadicionales">${detallesInfo}</p>
     </div>
     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
@@ -221,6 +222,7 @@ const pedidoEnviado = () => {
       confirmButtonText: 'Confirmar',
     }).then((result) => {
       if (result.isConfirmed) {
+        tomarPedidos();
         vaciarCarrito();
         renderCarrito();
         Swal.fire(
@@ -234,7 +236,6 @@ const pedidoEnviado = () => {
   }
 
   const tomarPedidos = () => {
-      botonConfirmado.addEventListener ("click", () => {
       let lstNumero = document.getElementsByClassName("valor"),
           arrayGuardarDatos = [];         
       for (let i = 0; i < lstNumero.length; i++) {    
@@ -252,6 +253,6 @@ const pedidoEnviado = () => {
           console.log(arrayGuardarDatos[4]);
           console.log ("Abona con :");   
           console.log(arrayGuardarDatos[5]);   
-      })}
+      }
   
   

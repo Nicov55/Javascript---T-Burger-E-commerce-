@@ -27,6 +27,7 @@ const mainCarrito = document.querySelector ('.maincarrito');
 renderCarrito();
 
 
+
 // CONFIRMAR PEDIDO
 
 let clicConfirmado = document.getElementById ('botonconfirmado')
@@ -41,7 +42,7 @@ let botonConfirmado = document.getElementById('botonconfirmado');
 
 alertaVaciarCarrito();
 pedidoEnviado();
-tomarPedidos();
+
 
 
 
