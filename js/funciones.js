@@ -235,12 +235,35 @@ const pedidoEnviado = () => {
   })
   }
 
-  const tomarPedidos = () => {
+const tomarPedidos = () => {
       let lstNumero = document.getElementsByClassName("valor"),
           arrayGuardarDatos = [];         
       for (let i = 0; i < lstNumero.length; i++) {    
           arrayGuardarDatos[i] = lstNumero[i].value;
           }    
       }
+
+const crearProductos = () => {
+
+fetch("./js/productos.json")
+.then(respuesta => respuesta.json())
+.then(produ => {
+    for (let contador = 0; contador < produ.length; contador++) {
+
+    let precioHtml = document.getElementById("precio-" + contador);
+    precioHtml.innerText = "$" + produ[contador].precio;
+    
+    let burgerHtml = document.getElementById(contador);
+    burgerHtml.innerText = produ[contador].nombre;
+    
+    let burgerimgHtml = document.getElementById("imgburger-" + contador);
+    burgerimgHtml.src = produ[contador].imagen;
+    
+    let descripcionHtml = document.getElementById("descripcion-" + contador);
+    descripcionHtml.innerText = produ[contador].descripcion;
   
-  
+  }})
+
+.catch (error => console.log('Hubo un error: ' + error.message))
+
+}

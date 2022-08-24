@@ -52,24 +52,9 @@ const listaPreciosTotal = productos.concat(adicionales);
 // ----------- DOM BASE (N) -----------
 
 let extras = document.querySelector('.extras');
-
-for (let contador = 0; contador < productos.length; contador++) {
-
-  let precioHtml = document.getElementById("precio-" + contador);
-precioHtml.innerText = "$" + productos[contador].precio;
-
-let burgerHtml = document.getElementById(contador);
-burgerHtml.innerText = productos[contador].nombre;
-
-let burgerimgHtml = document.getElementById("imgburger-" + contador);
-burgerimgHtml.src = productos[contador].imagen;
-
-let descripcionHtml = document.getElementById("descripcion-" + contador);
-descripcionHtml.innerText = productos[contador].descripcion;
-
 let extrasHtml = document.getElementsByClassName("extras");
 
-};
+crearProductos();
 
 crearAdicionales();
 
