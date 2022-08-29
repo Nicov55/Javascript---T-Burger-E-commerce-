@@ -1,4 +1,5 @@
-# javascript-coderhouse
+# Javascript---T-Burger-E-commerce-
+
 Entrega Final - CoderHouse ////// Autor: Nicolás Verón
 
 Este es un repositorio de Javascript relativo a una página de una tienda de hamburguesas.
