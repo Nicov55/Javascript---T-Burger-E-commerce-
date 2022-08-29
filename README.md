@@ -1,4 +1,4 @@
-# Javascript---T-Burger-E-commerce-
+# Javascript-T-Burger
 
 Entrega Final - CoderHouse ////// Autor: Nicolás Verón
 
